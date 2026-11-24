@@ -23,7 +23,7 @@ public class Resulat<T> {
     }
 
     // 操作失败的响应结果
-    public static <E> Resulat<E> fail(String msg) {
+    public static <E> Resulat<E> error(String msg) {
         return new Resulat<>(Code.FAIL, msg, null);
     }
 

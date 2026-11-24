@@ -7,7 +7,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 class BigEventBackendApplicationTests {
 
     @Test
-    void contextLoads() {
-    }
+    void test(){}
 
 }

@@ -1,14 +1,16 @@
 package com.jeang.bigeventbackend.pojo;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 public class Resulat<T> {
     private Integer code;
     private String msg;
-    private Object data;
+    private T data;
 
     // 返回操作成功响应结果(带操作数据)
     public static <E> Resulat<E> success(E data) {

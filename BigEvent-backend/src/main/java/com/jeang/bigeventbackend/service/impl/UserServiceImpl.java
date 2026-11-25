@@ -25,4 +25,9 @@ public class UserServiceImpl implements UserService {
         userMapper.insertUser(user);
         return Resulat.success();
     }
+
+    @Override
+    public boolean update(User user) {
+        return userMapper.updateUser(user);
+    }
 }

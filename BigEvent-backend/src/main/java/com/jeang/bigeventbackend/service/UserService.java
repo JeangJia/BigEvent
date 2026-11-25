@@ -9,4 +9,7 @@ public interface UserService {
 
     // 注册用户
     Resulat<Void> register(User user);
+
+    // 更新用户信息
+    boolean update(User user);
 }

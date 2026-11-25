@@ -6,7 +6,6 @@ import com.jeang.bigeventbackend.service.UserService;
 import com.jeang.bigeventbackend.utils.JwtUtil;
 import com.jeang.bigeventbackend.utils.Md5Util;
 import com.jeang.bigeventbackend.utils.ThreadLocalUtil;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -23,7 +22,7 @@ public class UserController {
 
     // register
     @PostMapping("/register")
-    public Resulat register(@RequestBody @Valid User user) {
+    public Resulat register(@RequestBody @Validated User user) {
         User byUsername = userService.findByUsername(user.getUsername());
         if (byUsername != null) {
             return Resulat.error("用户名已存在");
@@ -59,5 +58,13 @@ public class UserController {
         String username = (String) map.get("username");
         User user = userService.findByUsername(username);
         return Resulat.success(user);
+    }
+
+    // update
+    @PutMapping("/update")
+    public Resulat update(@RequestBody @Validated User user) {
+        if (userService.update(user))
+            return Resulat.success(null);
+        return Resulat.error("更新失败");
     }
 }

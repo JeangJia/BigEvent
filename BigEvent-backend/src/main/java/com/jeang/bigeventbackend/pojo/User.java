@@ -1,10 +1,8 @@
 package com.jeang.bigeventbackend.pojo;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.jeang.bigeventbackend.validation.Rule;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 
@@ -13,7 +11,7 @@ import java.time.LocalDateTime;
 @Data
 public class User {
 
-    @NotNull(message = "用户ID不能为空")
+//    @NotNull(message = "用户ID不能为空")
     private Integer id;//主键ID
 
     @Pattern(regexp = Rule.USERNAME_REGEX, message = "用户名长度必须为5-16位且不含空格")

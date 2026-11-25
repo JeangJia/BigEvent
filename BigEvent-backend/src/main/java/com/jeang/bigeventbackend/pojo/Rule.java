@@ -1,4 +1,4 @@
-package com.jeang.bigeventbackend.validation;
+package com.jeang.bigeventbackend.pojo;
 
 /**
  * 参数校验规则集中管理。
@@ -9,12 +9,18 @@ public final class Rule {
     private Rule() {
     }
 
-    /** 用户名：5-16 位，不含空白字符 */
+    /**
+     * 用户名：5-16 位，不含空白字符
+     */
     public static final String USERNAME_REGEX = "^\\S{5,16}$";
 
-    /** 密码：5-16 位，不含空白字符 */
+    /**
+     * 密码：5-16 位，不含空白字符
+     */
     public static final String PASSWORD_REGEX = "^\\S{5,16}$";
 
-    /** 昵称：1-10 位，不含空白字符 */
+    /**
+     * 昵称：1-10 位，不含空白字符
+     */
     public static final String NICKNAME_REGEX = "^\\S{1,10}$";
 }

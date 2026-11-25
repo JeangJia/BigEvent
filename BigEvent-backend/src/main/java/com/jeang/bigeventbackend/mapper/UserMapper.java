@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.jeang.bigeventbackend.pojo.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
@@ -21,4 +22,14 @@ public interface UserMapper extends BaseMapper<User> {
             "set nickname = #{nickname}, email = #{email}, update_time = now() " +
             "where id = #{id}")
     boolean updateUser(User user);
+
+    @Update("update user " +
+            "set user_pic = #{url},update_time = now() " +
+            "where id = #{id}")
+    void updateAvatar(@Param("url") String url, @Param("id") Integer id);
+
+    @Update("update user " +
+            "set password = #{password}, update_time = now() " +
+            "where id = #{id}")
+    void updatePwd(@Param("password") String encrypt, @Param("id") Integer id);
 }

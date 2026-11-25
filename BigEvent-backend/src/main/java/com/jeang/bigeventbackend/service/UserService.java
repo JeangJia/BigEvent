@@ -12,4 +12,8 @@ public interface UserService {
 
     // 更新用户信息
     boolean update(User user);
+
+    void updateAvatar(String url);
+
+    void updatePwd(String newPwd);
 }

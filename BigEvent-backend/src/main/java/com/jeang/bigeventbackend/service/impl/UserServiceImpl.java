@@ -5,8 +5,11 @@ import com.jeang.bigeventbackend.pojo.Resulat;
 import com.jeang.bigeventbackend.pojo.User;
 import com.jeang.bigeventbackend.service.UserService;
 import com.jeang.bigeventbackend.utils.Md5Util;
+import com.jeang.bigeventbackend.utils.ThreadLocalUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
@@ -28,6 +31,23 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean update(User user) {
+        Map<String, Object> map = ThreadLocalUtil.get();
+        Integer id = (Integer) map.get("id");
+        user.setId(id);
         return userMapper.updateUser(user);
+    }
+
+    @Override
+    public void updateAvatar(String url) {
+        Map<String, Object> map = ThreadLocalUtil.get();
+        Integer id = (Integer) map.get("id");
+        userMapper.updateAvatar(url, id);
+    }
+
+    @Override
+    public void updatePwd(String newPwd) {
+        Map<String, Object> map = ThreadLocalUtil.get();
+        Integer id = (Integer) map.get("id");
+        userMapper.updatePwd(Md5Util.encrypt(newPwd), id);
     }
 }

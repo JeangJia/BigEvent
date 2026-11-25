@@ -29,6 +29,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         }
     }
 
+    // 请求处理之后执行
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
         // 清除 ThreadLocal 中的数据

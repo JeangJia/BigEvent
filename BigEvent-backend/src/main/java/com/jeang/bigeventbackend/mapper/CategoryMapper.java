@@ -21,16 +21,16 @@ public interface CategoryMapper {
     /*
      * 查询分类
      * */
-    @Select("select * from category where id = #{id}")
-    Category findById(Integer id);
+    @Select("select * from category where id = #{id} and create_user = #{createUser}")
+    Category findById(@Param("id") Integer id, @Param("createUser") Integer createUser);
 
 
     /*
      * 更新文章分类
      * */
     @Update("update category " +
-            "set category_name = #{categoryName},category_alias = #{categoryAlias} ,update_time = now() " +
-            "where id = #{id}")
-    void update(Category category);
+            "set category_name = #{categoryName}, category_alias = #{categoryAlias}, update_time = now() " +
+            "where id = #{id} and create_user = #{createUser}")
+    int update(Category category);
 
 }

@@ -1,6 +1,6 @@
 package com.jeang.bigeventbackend.exception;
 
-import com.jeang.bigeventbackend.pojo.Resulat;
+import com.jeang.bigeventbackend.pojo.Result;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -13,16 +13,16 @@ public class GlobalExceptionHandler {
 
     // 参数校验失败（@Valid 校验 @RequestBody 不通过）
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public Resulat<Void> handleValidationException(MethodArgumentNotValidException e) {
+    public Result<Void> handleValidationException(MethodArgumentNotValidException e) {
         String msg = e.getBindingResult().getFieldErrors().stream()
                 .map(FieldError::getDefaultMessage)
                 .collect(Collectors.joining("; "));
-        return Resulat.error(msg.isEmpty() ? "参数校验失败" : msg);
+        return Result.error(msg.isEmpty() ? "参数校验失败" : msg);
     }
 
     @ExceptionHandler(Exception.class)
-    public Resulat handleException(Exception e) {
+    public Result handleException(Exception e) {
         e.printStackTrace();
-        return Resulat.error((e.getMessage()));
+        return Result.error((e.getMessage()));
     }
 }

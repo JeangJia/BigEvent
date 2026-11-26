@@ -1,7 +1,7 @@
 package com.jeang.bigeventbackend.service.impl;
 
 import com.jeang.bigeventbackend.mapper.UserMapper;
-import com.jeang.bigeventbackend.pojo.Resulat;
+import com.jeang.bigeventbackend.pojo.Result;
 import com.jeang.bigeventbackend.pojo.User;
 import com.jeang.bigeventbackend.service.UserService;
 import com.jeang.bigeventbackend.utils.Md5Util;
@@ -23,10 +23,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Resulat<Void> register(User user) {
+    public Result<Void> register(User user) {
         user.setPassword(Md5Util.encrypt(user.getPassword()));
         userMapper.insertUser(user);
-        return Resulat.success();
+        return Result.success();
     }
 
     @Override

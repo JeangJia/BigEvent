@@ -1,6 +1,6 @@
 package com.jeang.bigeventbackend.service;
 
-import com.jeang.bigeventbackend.pojo.Resulat;
+import com.jeang.bigeventbackend.pojo.Result;
 import com.jeang.bigeventbackend.pojo.User;
 
 public interface UserService {
@@ -8,7 +8,7 @@ public interface UserService {
     User findByUsername(String username);
 
     // 注册用户
-    Resulat<Void> register(User user);
+    Result<Void> register(User user);
 
     // 更新用户信息
     boolean update(User user);

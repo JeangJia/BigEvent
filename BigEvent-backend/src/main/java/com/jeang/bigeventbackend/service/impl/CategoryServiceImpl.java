@@ -32,12 +32,16 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public Category findById(Integer id) {
-        return categoryMapper.findById(id);
+        Map<String, Object> map = ThreadLocalUtil.get();
+        Integer createUser = (Integer) map.get("id");
+        return categoryMapper.findById(id, createUser);
     }
 
     @Override
-    public void update(Category category) {
-        categoryMapper.update(category);
+    public boolean update(Category category) {
+        Map<String, Object> map = ThreadLocalUtil.get();
+        category.setCreateUser((Integer) map.get("id"));
+        return categoryMapper.update(category) > 0;
     }
 
 

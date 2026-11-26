@@ -1,6 +1,6 @@
 package com.jeang.bigeventbackend.controller;
 
-import com.jeang.bigeventbackend.pojo.Resulat;
+import com.jeang.bigeventbackend.pojo.Result;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/article")
 public class ArticleController {
     @GetMapping("/list")
-    public Resulat<String> list() {
-        return Resulat.success("AllList...");
+    public Result<String> list() {
+        return Result.success("AllList...");
     }
 }

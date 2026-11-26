@@ -11,5 +11,5 @@ public interface CategoryService {
 
     Category findById(Integer id);
 
-    void update(Category category);
+    boolean update(Category category);
 }

@@ -1,6 +1,7 @@
 package com.jeang.bigeventbackend.pojo;
 
 import com.jeang.bigeventbackend.validated.Rule;
+import com.jeang.bigeventbackend.validated.State;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
@@ -24,7 +25,8 @@ public class Article {
     @URL(message = "文章封面图像格式不正确")
     private String coverImg;//封面图像
 
-    @NotBlank
+    @NotBlank(message = "文章状态不能为空")
+    @State
     private String state;//发布状态 已发布|草稿
 
     @NotNull

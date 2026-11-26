@@ -7,7 +7,7 @@ import com.jeang.bigeventbackend.service.UserService;
 import com.jeang.bigeventbackend.utils.JwtUtil;
 import com.jeang.bigeventbackend.utils.Md5Util;
 import com.jeang.bigeventbackend.utils.ThreadLocalUtil;
-import com.jeang.bigeventbackend.pojo.Rule;
+import com.jeang.bigeventbackend.validated.Rule;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.validator.constraints.URL;
 import org.springframework.beans.factory.annotation.Autowired;

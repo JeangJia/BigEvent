@@ -1,6 +1,6 @@
 package com.jeang.bigeventbackend.pojo.dto;
 
-import com.jeang.bigeventbackend.pojo.Rule;
+import com.jeang.bigeventbackend.validated.Rule;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import lombok.Data;

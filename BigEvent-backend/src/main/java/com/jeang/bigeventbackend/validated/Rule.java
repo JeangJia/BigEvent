@@ -1,4 +1,4 @@
-package com.jeang.bigeventbackend.pojo;
+package com.jeang.bigeventbackend.validated;
 
 /**
  * 参数校验规则集中管理。
@@ -23,4 +23,9 @@ public final class Rule {
      * 昵称：1-10 位，不含空白字符
      */
     public static final String NICKNAME_REGEX = "^\\S{1,10}$";
+
+    /*
+     * 文章Title:1-20位，不含空白字符
+     * */
+    public static final String ARTICLE_TITLE_REGEX = "^\\S{1,20}$";
 }

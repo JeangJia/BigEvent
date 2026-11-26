@@ -1,6 +1,7 @@
 package com.jeang.bigeventbackend.pojo;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.jeang.bigeventbackend.validated.Rule;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;

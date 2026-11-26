@@ -44,5 +44,12 @@ public class CategoryServiceImpl implements CategoryService {
         return categoryMapper.update(category) > 0;
     }
 
+    @Override
+    public boolean delete(Integer id) {
+        Map<String, Object> map = ThreadLocalUtil.get();
+        Integer createUser = (Integer) map.get("id");
+        return categoryMapper.delete(createUser, id);
+    }
+
 
 }

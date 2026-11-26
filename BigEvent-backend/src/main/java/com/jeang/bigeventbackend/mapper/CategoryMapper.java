@@ -33,4 +33,9 @@ public interface CategoryMapper {
             "where id = #{id} and create_user = #{createUser}")
     int update(Category category);
 
+    /*
+     * 删除文章分类
+     * */
+    @Delete("delete from category where id = #{id} and create_user = #{createUser}")
+    boolean delete(@Param("createUser") Integer cerateUser, @Param("id") Integer id);
 }

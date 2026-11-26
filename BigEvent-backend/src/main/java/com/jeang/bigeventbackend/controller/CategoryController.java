@@ -60,4 +60,18 @@ public class CategoryController {
         return Result.success("更新成功");
     }
 
+    /*
+     * 删除分类
+     * */
+    @DeleteMapping
+    public Result<String> delete(Integer id) {
+        if (id == null) {
+            return Result.error("分类id不能为空");
+        }
+        if (!categoryService.delete(id)) {
+            return Result.error("分类不存在或无权删除");
+        }
+        return Result.success("删除成功");
+    }
+
 }

@@ -12,6 +12,7 @@ import java.util.Map;
 @Component
 public class LoginInterceptor implements HandlerInterceptor {
 
+    // 请求处理之前执行
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         // 令牌验证

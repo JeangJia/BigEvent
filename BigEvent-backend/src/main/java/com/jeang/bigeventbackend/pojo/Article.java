@@ -1,5 +1,6 @@
 package com.jeang.bigeventbackend.pojo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.jeang.bigeventbackend.validated.Rule;
 import com.jeang.bigeventbackend.validated.State;
 import jakarta.validation.constraints.NotBlank;
@@ -31,7 +32,12 @@ public class Article {
 
     @NotNull
     private Integer categoryId;//文章分类id
+
     private Integer createUser;//创建人ID
+
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private LocalDateTime createTime;//创建时间
+
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private LocalDateTime updateTime;//更新时间
 }

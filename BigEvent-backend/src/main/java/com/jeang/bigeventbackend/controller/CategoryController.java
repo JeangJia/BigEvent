@@ -38,7 +38,7 @@ public class CategoryController {
      * 查看分类
      * */
     @GetMapping("/detail")
-    public Result<Category> detail(Integer id) {
+    public Result<Category> detail(@RequestParam("id") Integer id) {
         if (id == null) {
             return Result.error("分类id不能为空");
         }
@@ -64,7 +64,7 @@ public class CategoryController {
      * 删除分类
      * */
     @DeleteMapping
-    public Result<String> delete(Integer id) {
+    public Result<String> delete(@RequestParam("id") Integer id) {
         if (id == null) {
             return Result.error("分类id不能为空");
         }

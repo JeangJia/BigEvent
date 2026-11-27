@@ -16,7 +16,7 @@ public interface CategoryMapper {
      * 查询所有分类
      * */
     @Select("select * from category where create_user = #{id}")
-    List<Category> list(Integer id);
+    List<Category> list(@Param("id") Integer id);
 
     /*
      * 查询分类

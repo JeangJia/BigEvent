@@ -46,11 +46,11 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public PageResult<Article> list(Integer pageNum, Integer pageSize, Integer id, String state) {
+    public PageResult<Article> list(Integer pageNum, Integer pageSize, Integer categoryId, String state) {
         Page<Article> page = new Page<>(pageNum, pageSize);
         Map<String, Object> map = ThreadLocalUtil.get();
         Integer createUser = (Integer) map.get("id");
-        IPage<Article> result = articleMapper.list(page, createUser, id, state);
+        IPage<Article> result = articleMapper.list(page, createUser, categoryId, state);
         return new PageResult<>(result.getTotal(), result.getPages(), result.getCurrent(), result.getSize(), result.getRecords());
     }
 }

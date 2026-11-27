@@ -72,7 +72,7 @@ public class ArticleController {
     @GetMapping("/list")
     public Result<PageResult<Article>> list(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
                                             @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize,
-                                            @RequestParam(value = "id", required = false) Integer id,
+                                            @RequestParam(value = "id", required = false) Integer categoryId,
                                             @RequestParam(value = "state", required = false) String state) {
         // 页码、每页条数做边界修正，避免 Page 出现 0/负数导致查全表或异常
         pageNum = Math.max(pageNum, 1);
@@ -83,7 +83,7 @@ public class ArticleController {
                 !StateValidator.DRAFT.equals(state)) {
             return Result.error("文章状态只能是 已发布 或 草稿");
         }
-        PageResult<Article> pageResult = articleService.list(pageNum, pageSize, id, state);
+        PageResult<Article> pageResult = articleService.list(pageNum, pageSize, categoryId, state);
         return Result.success(pageResult);
     }
 }

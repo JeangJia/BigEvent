@@ -12,5 +12,5 @@ public interface ArticleService {
 
     Article findById(Integer id);
 
-    PageResult<Article> list(Integer pageNum, Integer pageSize, Integer id, String state);
+    PageResult<Article> list(Integer pageNum, Integer pageSize, Integer categoryId, String state);
 }

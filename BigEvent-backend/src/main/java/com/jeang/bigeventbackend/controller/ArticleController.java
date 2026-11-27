@@ -72,13 +72,16 @@ public class ArticleController {
     @GetMapping("/list")
     public Result<PageResult<Article>> list(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
                                             @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize,
-                                            @RequestParam(value = "id", required = false) Integer categoryId,
+                                            @RequestParam(value = "categoryId", required = false) Integer categoryId,
                                             @RequestParam(value = "state", required = false) String state) {
         // 页码、每页条数做边界修正，避免 Page 出现 0/负数导致查全表或异常
         pageNum = Math.max(pageNum, 1);
         pageSize = Math.min(Math.max(pageSize, 1), MAX_PAGE_SIZE);
+        // 仅空白的 state 视同未传，否则会拼出 state = ' ' 这种永远查不到数据的条件
+        if (state != null && state.isBlank()) {
+            state = null;
+        }
         if (state != null &&
-                !state.isBlank() &&
                 !StateValidator.PUBLISHED.equals(state) &&
                 !StateValidator.DRAFT.equals(state)) {
             return Result.error("文章状态只能是 已发布 或 草稿");

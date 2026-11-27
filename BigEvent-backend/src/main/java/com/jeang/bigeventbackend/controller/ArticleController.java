@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @Validated
 @RestController
 @RequestMapping("/article")
+@CrossOrigin
 public class ArticleController {
 
     // 单页最大条数，防止前端传入过大的 pageSize

@@ -14,7 +14,6 @@ export default defineConfig({
     },
     server: {
         proxy: {
-            // 前端请求 /api/xxx，由 dev server 转发到后端，浏览器侧是同源，不触发 CORS 预检
             '/api': {
                 target: 'http://localhost:8080',
                 changeOrigin: true,
